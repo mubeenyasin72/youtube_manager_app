@@ -4,14 +4,29 @@ import json
 
 # Load Data
 def load_data():
-    videos = []
-    pass
+    try:
+        with open("youtube.txt", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print("File not found")
+        return []
+# Save Data Helper
+def save_data_helper(videos):
+    with open("youtube.txt", "w") as file:
+        json.dump(videos, file)
+
 # 1: List all YouTube videos
 def list_all_video(videos):
-    pass
+    for index, video in enumerate(videos,start=1):
+        print(f"{index}. Name {video['name']} Time {video['time']} ")
 # 2: Add a new YouTube video
 def add_video(videos):
-    pass
+    name = input("Enter the name of the video: ")
+    time = input("Enter the time of the video: ")
+    videos.append({"name": name, "time": time})
+    save_data_helper(videos)
+    print("Video added successfully")
+    
 # 3: Update YouTube video details
 def update_video_details(videos):
     pass
