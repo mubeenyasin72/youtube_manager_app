@@ -3,18 +3,19 @@
 def list_all_video(videos):
     pass
 # 2: Add a new YouTube video
-def add_video(video):
+def add_video(videos):
     pass
 # 3: Update YouTube video details
-def update_video_details(video):
+def update_video_details(videos):
     pass
 # 4: Delete a YouTube video
-def delete_video(video):
+def delete_video(videos):
     pass
 
 
 
 def main():
+    videos = []
     while True:
         print("\n Youtube Manager | choose an option ")
         print("1. List all youtube videos ")
@@ -28,11 +29,11 @@ def main():
         if choice == "1":
             list_all_video(videos)
         elif choice == "2":
-            add_video(video)
+            add_video(videos)
         elif choice == "3":
-            update_video_details(video)
+            update_video_details(videos)
         elif choice == "4":
-            delete_video(video)
+            delete_video(videos)
         elif choice == "5":
             print("Exiting the app")
             break
