@@ -1,4 +1,11 @@
+import json
 
+
+
+# Load Data
+def load_data():
+    videos = []
+    pass
 # 1: List all YouTube videos
 def list_all_video(videos):
     pass
@@ -15,7 +22,7 @@ def delete_video(videos):
 
 
 def main():
-    videos = []
+    videos = load_data()
     while True:
         print("\n Youtube Manager | choose an option ")
         print("1. List all youtube videos ")
