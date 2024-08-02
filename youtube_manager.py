@@ -10,6 +10,7 @@ def load_data():
     except FileNotFoundError:
         print("File not found")
         return []
+    
 # Save Data Helper
 def save_data_helper(videos):
     with open("youtube.txt", "w") as file:
@@ -17,8 +18,12 @@ def save_data_helper(videos):
 
 # 1: List all YouTube videos
 def list_all_video(videos):
+    print("\n")
+    print("*" * 70)
     for index, video in enumerate(videos,start=1):
-        print(f"{index}. Name {video['name']} Time {video['time']} ")
+        print(f"{index}. Name: {video['name']}, Duration: {video['time']} ")
+    print("*" * 70)
+    
 # 2: Add a new YouTube video
 def add_video(videos):
     name = input("Enter the name of the video: ")
@@ -29,10 +34,31 @@ def add_video(videos):
     
 # 3: Update YouTube video details
 def update_video_details(videos):
-    pass
+    list_all_video(videos)
+    index = int(input("Enter the index of the video to update: "))
+    if 1 <= index <= len(videos):
+        name = input("Enter the new name of the video:")
+        time = input("Enter the new time of the video:")
+        videos[index - 1] = {"name": name, "time": time}
+        save_data_helper(videos)
+        print("Video details updated successfully")
+    else:
+        print("Invalid index")
+
 # 4: Delete a YouTube video
 def delete_video(videos):
-    pass
+    list_all_video(videos)
+    index = int(input("Enter the index of the video to delete: "))
+    
+    if 1 <= index <= len(videos):
+        del videos[index - 1]
+        save_data_helper(videos)
+        print("Video deleted successfully")
+    else:
+        print("Invalid index")
+        
+        
+        
 
 
 
